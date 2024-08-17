@@ -1,5 +1,8 @@
 <template>
-  <q-page class="flex flex-center text-white">
+  <q-page
+    v-touch-pan.prevent.mouse="handlePan"
+    class="flex flex-center text-white"
+  >
     <div class="row">
       <q-input
         v-model="data.name"
@@ -70,4 +73,8 @@
    data.counter = 0
  }
 
+ const handlePan = e => {
+   if (e.delta.y < 0) increaseCounter()
+   else decreaseCounter()
+ }
 </script>
