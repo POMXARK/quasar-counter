@@ -8,7 +8,10 @@
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
-    "build": "quasar build"
+    "build": "quasar build",
+    "build:ssg": "quasar ssg generate",
+    "dev:ssg": "quasar ssg dev",
+    "serve:ssg": "quasar ssg serve dist/ssg"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
@@ -21,7 +24,8 @@
     "@quasar/app-vite": "^1.9.0",
     "autoprefixer": "^10.4.2",
     "electron": "^31.4.0",
-    "postcss": "^8.4.14"
+    "postcss": "^8.4.14",
+    "quasar-app-extension-ssg": "^5.2.0"
   },
   "engines": {
     "node": "^20 || ^18 || ^16",
