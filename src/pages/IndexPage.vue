@@ -2,6 +2,7 @@
   <q-page class="flex flex-center text-white">
     <div class="row">
       <q-input
+        v-model="data.name"
         input-class="text-center text-h5 text-white"
         color="teal"
         placeholder="Counter"
@@ -11,16 +12,18 @@
     <div class="row full-width items-center">
       <div class="col text-center">
         <q-btn
+          @click="decreaseCounter"
           icon="remove"
           size="xl"
           round
         />
       </div>
       <div class="col text-center text-h2">
-        23
+        {{ data.counter }}
       </div>
       <div class="col text-center">
         <q-btn
+          @click="increaseCounter"
           icon="add"
           size="xl"
           round
@@ -29,6 +32,7 @@
     </div>
     <div class="row">
       <q-btn
+        @click="resetCounter"
         icon="restart_alt"
         size="xl"
         round
@@ -45,5 +49,23 @@
 </style>
 
 <script setup>
+ import { reactive} from "vue"
+
+ const data = reactive({
+   counter: 0,
+   name: '',
+ })
+
+ const increaseCounter = () => {
+   data.counter++
+ }
+
+ const decreaseCounter = () => {
+   if (data.counter > 0) data.counter--
+ }
+
+ const resetCounter = () => {
+   data.counter = 0
+ }
 
 </script>
